@@ -11,7 +11,12 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify all allowed methods
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
